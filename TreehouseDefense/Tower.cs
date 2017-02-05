@@ -8,5 +8,19 @@ namespace TreehouseDefense
 {
     class Tower
     {
+        private readonly MapLocation _location;
+        public Tower (MapLocation location)
+        {
+            MapLocation _location = location; 
+        }
+
+        //method to fire at invaders
+        public void FireAtInvaders (Invader[] invaders)
+        {
+            for (int index = 0; index < invaders.Length; index++)
+            {
+                Invader invader = invaders[index];
+            }
+        }
     }
 }
