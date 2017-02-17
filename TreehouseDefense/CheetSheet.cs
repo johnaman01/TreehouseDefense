@@ -16,10 +16,10 @@ namespace TreehouseDefense
         }
         public void SetLocation(MapLocation value)
         {
-            _location = value
+            _location = value;
         }
         //cf. AutoProperty
-        public MapLocation Location { get; set; }
+        public MapLocation Location { get; private set; }
 
         //Computed Property
         public MapLocation Location
@@ -56,6 +56,18 @@ namespace TreehouseDefense
             {
                 Invader invader = invaders[index];
             }
+
+            //If-else
+            if (0 < x) //code block below is executed if parameter is TRUE
+            {
+                Console.Write("x is more than 0");
+            }
+            else
+            {
+                Console.Write("x is less than 0");
+            }
+            //cf. Ternary If
+            0 < x ? Console.Write("Less") : Console.Write("More");
         }
     }
 }

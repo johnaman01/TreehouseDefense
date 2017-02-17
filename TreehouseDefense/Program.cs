@@ -25,8 +25,28 @@ namespace TreehouseDefense
                          new MapLocation(6, 2),
                          new MapLocation(7, 2)
                     });
-               
-               
+                Invader[] invaders =
+                {
+                    new Invader(path),
+                    new Invader(path),
+                    new Invader(path),
+                    new Invader(path)
+                };
+                Tower[] towers =
+                {
+                    new Tower(new MapLocation(1, 3)),
+                    new Tower(new MapLocation(3, 3)),
+                    new Tower(new MapLocation(5, 3))
+                };
+
+                Level level = new Level(invaders)
+                {
+                    Towers = towers
+                };
+
+                bool playerWon = level.Play();
+
+                Console.WriteLine("Player " + (playerWon ? "won" : "lost"));
             }
             catch(Exception ex)
             {

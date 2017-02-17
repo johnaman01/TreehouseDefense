@@ -8,6 +8,11 @@ namespace TreehouseDefense
 {
     class Tower
     {
+        private const int _range = 1;
+        private const int _power = 1;
+        //A static member (field)
+        private static readonly Random _random = new Random();
+
         private readonly MapLocation _location;
         public Tower (MapLocation location)
         {
@@ -17,10 +22,19 @@ namespace TreehouseDefense
         //method to fire at invaders
         public void FireAtInvaders (Invader[] invaders)
         {
-            for (int index = 0; index < invaders.Length; index++)
+            for (int i = 0; i < invaders.Length; i++)
             {
-                Invader invader = invaders[index];
+                Invader invader = invaders[i];
             }
+
+            foreach(Invader invader in invaders)
+            {
+                if(invader.IsActive && _location.InRangeOf(invader.Location, 1))
+                {
+                    invader.DecreaseHealth(1);
+                    break;
+                }
+            }        
         }
     }
 }

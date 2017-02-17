@@ -28,7 +28,13 @@ namespace TreehouseDefense
                 return Health <= 0;
             }
         }
-
+        public bool IsActive
+        {
+            get
+            {
+                return !IsNeutralized;
+            }
+        }
         //constructor
         public Invader(Path path)
         {
